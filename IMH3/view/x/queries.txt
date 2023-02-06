@@ -1,0 +1,14 @@
+SELECT 
+`bestelling`.`bestelnummer`,
+`bestelling`.`klantnummer`,
+`bestelling`.`besteldatum`,
+`bestelling`.`status`,
+`bestelling`.`totaalprijs`,
+`bestelregel`.`productnummer`,
+`bestelregel`.`productprijs`,
+`bestelregel`.`aantal_besteld`,
+`klant`.`naam`
+FROM `bestelling`, `bestelregel`, `klant`
+WHERE `klant`.`klantnr` = `bestelling`.`klantnummer`
+AND `bestelling`.`bestelnummer` = `bestelregel`.`bestelnummer`
+AND `klant`.`klantnr` = 6;
